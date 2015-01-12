@@ -69,7 +69,7 @@ final class Curl
 
         $body = curl_exec($this->handle);
         if ($body === false) {
-            throw new Exception_NetworkIO("Error executing HTTP request: " . curl_error($this->handle));
+            throw new \Dropbox\Exception\NetworkIO("Error executing HTTP request: " . curl_error($this->handle));
         }
 
         $statusCode = curl_getinfo($this->handle, CURLINFO_HTTP_CODE);

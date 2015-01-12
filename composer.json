@@ -1,7 +1,7 @@
 {
-    "name": "dropbox/dropbox-sdk",
+    "name": "rps/dropbox-sdk",
     "description": "Dropbox SDK for PHP",
-    "keywords" : [ "dropbox" ],
+    "keywords" : [ "dropbox" , "typo3", "flow" ],
 
     "license": "MIT",
 

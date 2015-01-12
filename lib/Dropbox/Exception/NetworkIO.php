@@ -1,10 +1,10 @@
 <?php
-namespace Dropbox;
+namespace Dropbox\Exception;
 
 /**
  * There was a network I/O error when making the request.
  */
-final class Exception_NetworkIO extends Exception
+final class NetworkIO extends \Dropbox\Exception
 {
     /**
      * @internal

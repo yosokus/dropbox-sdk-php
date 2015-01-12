@@ -226,13 +226,13 @@ final class RequestUtil
     /**
      * @param string $responseBody
      * @return mixed
-     * @throws Exception_BadResponse
+     * @throws \Dropbox\Exception\BadResponse
      */
     static function parseResponseJson($responseBody)
     {
         $obj = json_decode($responseBody, true, 10);
         if ($obj === null) {
-            throw new Exception_BadResponse("Got bad JSON from server: $responseBody");
+            throw new \Dropbox\Exception\BadResponse("Got bad JSON from server: $responseBody");
         }
         return $obj;
     }
@@ -247,12 +247,12 @@ final class RequestUtil
             $message .= "\n".$httpResponse->body;
         }
 
-        if ($sc === 400) return new Exception_BadRequest($message);
-        if ($sc === 401) return new Exception_InvalidAccessToken($message);
-        if ($sc === 500 || $sc === 502) return new Exception_ServerError($message);
-        if ($sc === 503) return new Exception_RetryLater($message);
+        if ($sc === 400) return new \Dropbox\Exception\BadRequest($message);
+        if ($sc === 401) return new \Dropbox\Exception\InvalidAccessToken($message);
+        if ($sc === 500 || $sc === 502) return new \Dropbox\Exception\ServerError($message);
+        if ($sc === 503) return new \Dropbox\Exception\RetryLater($message);
 
-        return new Exception_BadResponseCode("Unexpected $message", $sc);
+        return new \Dropbox\Exception\BadResponseCode("Unexpected $message", $sc);
     }
 
     /**
@@ -278,13 +278,13 @@ final class RequestUtil
                 return $action();
             }
             // These exception types are the ones we think are possibly transient errors.
-            catch (Exception_NetworkIO $ex) {
+            catch (\Dropbox\Exception\NetworkIO $ex) {
                 $savedEx = $ex;
             }
-            catch (Exception_ServerError $ex) {
+            catch (\Dropbox\Exception\ServerError $ex) {
                 $savedEx = $ex;
             }
-            catch (Exception_RetryLater $ex) {
+            catch (\Dropbox\Exception\RetryLater $ex) {
                 $savedEx = $ex;
             }
 

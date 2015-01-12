@@ -1,4 +1,4 @@
-# Dropbox SDK for PHP 5.3+
+# Dropbox SDK for TYPO3 Flow 2.2+
 
 A PHP library to access [Dropbox's HTTP-based API](http://dropbox.com/developers/core/docs).
 

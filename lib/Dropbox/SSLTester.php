@@ -120,7 +120,7 @@ class SSLTester
         try {
             $curl->exec();
         }
-        catch (Exception_NetworkIO $ex) {
+        catch (\Dropbox\Exception\NetworkIO $ex) {
             if (strpos($ex->getMessage(), $expectedExceptionMessage) == 0) {
                 return true;
             } else {

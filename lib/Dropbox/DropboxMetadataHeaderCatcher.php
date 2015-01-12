@@ -33,7 +33,7 @@ final class DropboxMetadataHeaderCatcher
      * @param resource $ch
      * @param string $header
      * @return int
-     * @throws Exception_BadResponse
+     * @throws \Dropbox\Exception\BadResponse
      */
     function headerFunction($ch, $header)
     {
@@ -73,10 +73,10 @@ final class DropboxMetadataHeaderCatcher
     function getMetadata()
     {
         if ($this->error !== null) {
-            throw new Exception_BadResponse($this->error);
+            throw new \Dropbox\Exception\BadResponse($this->error);
         }
         if ($this->metadata === null) {
-            throw new Exception_BadResponse("Missing X-Dropbox-Metadata header");
+            throw new \Dropbox\Exception\BadResponse("Missing X-Dropbox-Metadata header");
         }
         return $this->metadata;
     }
